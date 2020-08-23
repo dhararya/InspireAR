@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Is the task done?</title>
+    <link rel="shortcut icon" href="https://i.imgur.com/fx35I70.png">
+</head>
+<body>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <style>
+
+        body{
+            background-color: #9867C5;
+        }
+
+        input{
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            box-sizing: border-box;
+        }
+
+
+        .submit{
+            background-color: #6BA3E8;
+        }
+
+        .center-column{
+            width:600px;
+            margin: 20px auto;
+            padding:20px;
+            background-color: #fff;
+            border-radius: 3px;
+            box-shadow: 6px 2px 30px 0px rgba(0,0,0,0.75);
+        }
+
+        .btn-cancel{
+            width: 100%;
+            padding: 5px 20px;
+            margin: 8px 0;
+            box-sizing: border-box;
+            color:#fff;
+            background-color:#b90e0a;
+            border-color:#b90e0a}
+    </style>
+    <div class="center-column">
+        <h3> <b>Are you sure the task "{{ item }}" is complete? </b> </h3>
+        <a href="{% url 'tasks' %}" class = "btn btn-cancel">No</a>
+        <form method = "POST" action ="" >
+            {% csrf_token %}
+            <input type="submit" name = "Yes" value = "Yes" class = "btn btn-success">
+        </form>
+    </div>
+
+</body>
+</html>
